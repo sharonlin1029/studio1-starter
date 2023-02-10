@@ -8,7 +8,18 @@
 </head>
 <body>
 	<div id="app">
-
+		<ma-data v-model="tasks" src="local:tasks" autosave></ma-data>
+	<h1>{{count(get(tasks, "done"))}} of {{tasks.length}}</h1>
+	<ul>
+		<li v-for="(task, i) of tasks"> 
+			<input type="checkbox" v-model="task.done">
+			<input type="text" v-model="task.title">
+			<button @click="deleteItem(i)">X</button>
+			{{i}}
+		</li>
+	</ul>
+	<button @click="addItem()">Add item</button>
+	<button @click="clearCompleted()">Clear Completed</button>
 	</div>
 </body>
 </html>

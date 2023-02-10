@@ -5,7 +5,7 @@ let app = createApp({
 		tasks: [
 			{
 				done: false,
-				task: "",
+				title: "",
 				active: true,
 			}
 		]
@@ -19,6 +19,7 @@ let app = createApp({
 		},
 
 		deleteItem(i) {
+			console.log(i);
 			this.tasks.splice(i, 1);
 			this.setActive(i - 1);
 		},
